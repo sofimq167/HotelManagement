@@ -1,0 +1,10 @@
+
+        ========== FACTURA ==========
+        Cliente: Ana Decoradora (ID: 555)
+        Habitación: 777
+        Descripción: Suite + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia
+        Fecha de ingreso: 2025-05-22
+        Fecha de salida: 2025-05-23
+        Total a pagar: $325.00
+        =============================
+        

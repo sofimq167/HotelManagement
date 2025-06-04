@@ -1,0 +1,12 @@
+
+        ========== FACTURA ==========
+        Cliente: <core.reserva_manager.Cliente object at 0x000001B6CA9D9C40>
+        Habitación: 201
+        Descripción: Habitación Doble
+        Fecha de ingreso: 2025-06-01
+        Fecha de salida: 2025-06-02
+        Servicios adicionales:
+        Ninguno
+        Total a pagar: $150.00
+        =============================
+        

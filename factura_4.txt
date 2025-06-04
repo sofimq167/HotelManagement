@@ -1,0 +1,12 @@
+
+        ========== FACTURA ==========
+        Cliente: gigi (ID: 1234590)
+        Habitación: 308
+        Descripción: Estándar Individual
+        Fecha de ingreso: 2025-06-06
+        Fecha de salida: 2025-06-10
+        Servicios adicionales:
+        Ninguno
+        Total a pagar: $100.00
+        =============================
+        
