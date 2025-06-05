@@ -1,0 +1,38 @@
+==================================================
+                FACTURA HOTEL
+==================================================
+Número de Reserva: 17
+Fecha de Emisión: 05/06/2025 12:37
+
+INFORMACIÓN DEL CLIENTE:
+------------------------------
+Nombre: persona2
+Documento: 123444566
+Teléfono: 3129876543
+Correo: persona2@correo.com
+Método de pago: Transferencia Bancaria
+
+DETALLES DE LA RESERVA:
+------------------------------
+Habitación: 315
+Descripción: Suite + Servicio Restaurante
+Fecha de ingreso: 2025-08-05
+Fecha de salida: 2025-08-15
+Número de noches: 10
+
+SERVICIOS ADICIONALES:
+------------------------------
+Ninguno
+
+RESUMEN DE COSTOS:
+------------------------------
+Costo por noche: $250.00
+Número de noches: 10
+Subtotal habitación: $2500.00
+Servicios adicionales: $30.00
+TOTAL A PAGAR: $2530.00
+
+Método de pago: Transferencia Bancaria
+==================================================
+¡Gracias por su preferencia!
+==================================================

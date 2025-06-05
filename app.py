@@ -1,25 +1,24 @@
+import argparse
 import tkinter as tk
+from core.repositorio_archivo import RepositorioArchivo
 from views.hotel_gui import ControladorVentanas
 from core.repositorio_bd import RepositorioBD
 from core.reserva_manager import ReservaManager
 
 def main():
-    repositorio = RepositorioBD()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--repositorio", choices=["bd", "archivo"], default="bd")
+    args = parser.parse_args()
+
+    sincronizar_repositorios()
+
+    if args.repositorio == "bd":
+        repositorio = RepositorioBD()
+    else:
+        repositorio = RepositorioArchivo()
+
     manager = ReservaManager.getInstancia(repositorio)
-
-    # Imprimir lista de habitaciones - Para verificar
-    print("\nLista de habitaciones registradas")
-    for hab in manager.habitaciones:
-        estado = hab.estado.__class__.__name__ if hab.estado else "Sin estado"
-        print(f"Habitación {hab.numero} - {hab.get_descripcion()} - ${hab.get_precio()} - Estado: {estado}")
-    
-    # Imprimir lista de reservas - Para verificar
-    print("\nLista de reservas registradas")
-    for reserva in manager.reservas:
-        print(f"Reserva ID: {reserva.id}, Cliente: {reserva.cliente.nombre}, "
-        f"Habitación: {reserva.habitacion.numero}, "
-        f"Check-in: {reserva.fecha_inicio}, Check-out: {reserva.fecha_fin}")
-
 
     root = tk.Tk()
     # Configurar la ventana para que se vea bien en diferentes sistemas
@@ -31,6 +30,23 @@ def main():
     # Iniciar el bucle principal
     root.mainloop()
 
+def sincronizar_repositorios(ruta_bd="hotel.db"):
+    repo_bd = RepositorioBD(ruta_bd)
+    repo_json = RepositorioArchivo()
+
+    # Obtener cantidades
+    total_bd = len(repo_bd.obtener_todas()) + len(repo_bd.obtener_habitaciones()) + len(repo_bd.obtener_todos_precios_tipos())
+    total_json = len(repo_json.obtener_todas()) + len(repo_json.obtener_habitaciones()) + len(repo_json.obtener_todos_precios_tipos())
+
+    if total_bd >= total_json:
+        print("Migrando desde base de datos a archivos JSON...")
+        resultado = repo_json.migrar_desde_bd(repo_bd)
+    else:
+        print("Migrando desde archivos JSON a base de datos...")
+        resultado = repo_json.migrar_hacia_bd(repo_bd)
+
+    repo_bd.cerrar()
+    return resultado
 
 if __name__ == "__main__":
     main()

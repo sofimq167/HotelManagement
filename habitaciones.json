@@ -1,0 +1,142 @@
+[
+  {
+    "numero": 101,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "Deshabilitada"
+  },
+  {
+    "numero": 102,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 201,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 202,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 301,
+    "tipo": "suite",
+    "descripcion": "Suite",
+    "precio": 250.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 302,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 303,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 304,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 305,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 306,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 307,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 308,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 309,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 310,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 311,
+    "tipo": "suite",
+    "descripcion": "Suite",
+    "precio": 250.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 312,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 313,
+    "tipo": "suite",
+    "descripcion": "Suite",
+    "precio": 250.0,
+    "estado": "PorLimpiar"
+  },
+  {
+    "numero": 314,
+    "tipo": "doble",
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 315,
+    "tipo": "suite",
+    "descripcion": "Suite",
+    "precio": 300.0,
+    "estado": "Disponible"
+  },
+  {
+    "numero": 316,
+    "tipo": "estandar",
+    "descripcion": "Estándar Individual",
+    "precio": 140.0,
+    "estado": "Disponible"
+  }
+]

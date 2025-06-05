@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "cliente": {
+      "nombre": "Juan",
+      "documento": "12345678"
+    },
+    "habitacion": 102,
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "fecha_inicio": "2025-06-02",
+    "fecha_fin": "2025-06-03",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 2,
+    "cliente": {
+      "nombre": "maria",
+      "documento": "1234589"
+    },
+    "habitacion": 201,
+    "descripcion": "Habitación Doble",
+    "precio": 150.0,
+    "fecha_inicio": "2025-06-01",
+    "fecha_fin": "2025-06-02",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 3,
+    "cliente": {
+      "nombre": "pablo",
+      "documento": "987654"
+    },
+    "habitacion": 101,
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "fecha_inicio": "2025-08-01",
+    "fecha_fin": "2025-08-09",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 4,
+    "cliente": {
+      "nombre": "gigi",
+      "documento": "1234590"
+    },
+    "habitacion": 308,
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "fecha_inicio": "2025-06-06",
+    "fecha_fin": "2025-06-10",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 5,
+    "cliente": {
+      "nombre": "maria",
+      "documento": "1234567890"
+    },
+    "habitacion": 102,
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "fecha_inicio": "2025-06-05",
+    "fecha_fin": "2025-06-06",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 7,
+    "cliente": {
+      "nombre": "pablito",
+      "documento": "111111"
+    },
+    "habitacion": 202,
+    "descripcion": "Habitación Doble + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia",
+    "precio": 225.0,
+    "fecha_inicio": "2025-06-09",
+    "fecha_fin": "2025-06-11",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 8,
+    "cliente": {
+      "nombre": "juan",
+      "documento": "123"
+    },
+    "habitacion": 101,
+    "descripcion": "Estándar Individual",
+    "precio": 100.0,
+    "fecha_inicio": "2025-08-14",
+    "fecha_fin": "2025-08-28",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 9,
+    "cliente": {
+      "nombre": "nueva",
+      "documento": "111111"
+    },
+    "habitacion": 313,
+    "descripcion": "Suite",
+    "precio": 280.0,
+    "fecha_inicio": "2025-06-14",
+    "fecha_fin": "2025-06-15",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 10,
+    "cliente": {
+      "nombre": "juan perez",
+      "documento": "1111111"
+    },
+    "habitacion": 301,
+    "descripcion": "Suite",
+    "precio": 250.0,
+    "fecha_inicio": "2025-06-05",
+    "fecha_fin": "2025-06-06",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 11,
+    "cliente": {
+      "nombre": "sofia",
+      "documento": "1234948"
+    },
+    "habitacion": 201,
+    "descripcion": "Habitación Doble + Servicio Restaurante + Servicio Limpieza",
+    "precio": 200.0,
+    "fecha_inicio": "2025-06-07",
+    "fecha_fin": "2025-06-09",
+    "estado": "Ocupada"
+  },
+  {
+    "id": 12,
+    "cliente": {
+      "nombre": "pepito",
+      "documento": "12344444"
+    },
+    "habitacion": 302,
+    "descripcion": "Habitación Doble + Servicio Restaurante",
+    "precio": 180.0,
+    "fecha_inicio": "2025-06-08",
+    "fecha_fin": "2025-06-12",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 13,
+    "cliente": {
+      "nombre": "juanita",
+      "documento": "99999999"
+    },
+    "habitacion": 304,
+    "descripcion": "Estándar Individual + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia",
+    "precio": 175.0,
+    "fecha_inicio": "2025-06-08",
+    "fecha_fin": "2025-06-14",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 14,
+    "cliente": {
+      "nombre": "Carla",
+      "documento": "11111112"
+    },
+    "habitacion": 311,
+    "descripcion": "Suite + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia",
+    "precio": 325.0,
+    "fecha_inicio": "2025-06-12",
+    "fecha_fin": "2025-06-14",
+    "estado": "Ocupada"
+  },
+  {
+    "id": 15,
+    "cliente": {
+      "nombre": "carlos",
+      "documento": "123444"
+    },
+    "habitacion": 303,
+    "descripcion": "Habitación Doble + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia",
+    "precio": 225.0,
+    "fecha_inicio": "2025-06-14",
+    "fecha_fin": "2025-06-15",
+    "estado": "Finalizada"
+  },
+  {
+    "id": 16,
+    "cliente": {
+      "nombre": "Persona1",
+      "documento": "123456678"
+    },
+    "habitacion": 102,
+    "descripcion": "Estándar Individual + Servicio Restaurante",
+    "precio": 130.0,
+    "fecha_inicio": "2025-06-10",
+    "fecha_fin": "2025-06-15",
+    "estado": "Finalizada"
+  }
+]

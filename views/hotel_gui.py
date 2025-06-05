@@ -226,62 +226,129 @@ class VistaHabitaciones(tk.Frame):
 
         # Título y botones superiores
         header_frame = tk.Frame(self)
-        header_frame.pack(pady=10, fill="x")
+        header_frame.pack(pady=15, fill="x")
         
-        tk.Label(header_frame, text="Gestión de Habitaciones", font=("Arial", 16)).pack()
+        tk.Label(header_frame, text="🏨 Gestión de Habitaciones", 
+                font=("Segoe UI", 18, "bold"), fg="#2c3e50").pack(pady=5)
         
         # Frame para botones de acción
         button_frame = tk.Frame(header_frame)
-        button_frame.pack(pady=10)
+        button_frame.pack(pady=15)
 
         # Frame para filtros
         filter_frame = tk.Frame(header_frame)
-        filter_frame.pack(pady=5)
+        filter_frame.pack(pady=10)
 
-        tk.Label(filter_frame, text="Filtrar por estado:", font=("Arial", 10)).pack(side=tk.LEFT, padx=(0, 10))
+        tk.Label(filter_frame, text="Filtrar por estado:", 
+                font=("Segoe UI", 12, "bold"), fg="#34495e").pack(side=tk.LEFT, padx=(0, 15))
 
         self.filtro_estado = tk.StringVar(value="Todos")
         estados = ["Todos", "Disponible", "Reservada", "Ocupada", "PorLimpiar","Deshabilitada"]
+        
+        # Lista para guardar referencias a los radiobuttons
+        self.radiobuttons = []
 
         for estado in estados:
-            tk.Radiobutton(filter_frame, text=estado, variable=self.filtro_estado, 
-                        value=estado, command=self.actualizar_lista).pack(side=tk.LEFT, padx=5)
+            rb = tk.Radiobutton(filter_frame, text=estado, variable=self.filtro_estado, 
+                        value=estado, command=lambda: self.actualizar_filtro_y_lista(),
+                        font=("Segoe UI", 14), 
+                        fg="#2c3e50",              # Color del texto normal (gris)
+                        selectcolor="#3498db",     # Color del círculo cuando está seleccionado
+                        activeforeground="#2c3e50", # Color del texto al hacer hover
+                        relief="flat",             # Sin relieve
+                        borderwidth=0)             # Sin borde
+            rb.pack(side=tk.LEFT, padx=8)
+            self.radiobuttons.append(rb)
         
-        tk.Button(button_frame, text="Nueva Habitación", bg="lightblue", 
-                 command=self.mostrar_dialog_crear_habitacion).pack(side=tk.LEFT, padx=5)
-        tk.Button(button_frame, text="Actualizar Lista", 
-                 command=self.actualizar_lista).pack(side=tk.LEFT, padx=5)
-        tk.Button(button_frame, text="Limpiar Habitación", bg="lightyellow",
-                 command=self.mostrar_dialog_limpiar).pack(side=tk.LEFT, padx=5)
-        tk.Button(self, text="← Volver al Menú Principal", 
-            font=("Segoe UI", 11), 
-            bg="#95a5a6", fg="white", 
-            pady=8, padx=20,
-            command=self.controlador.mostrar_menu_principal).pack(pady=15)
-        tk.Button(button_frame, text="Cambiar Precios", bg="lightgreen", 
-                 command=self.mostrar_dialog_cambiar_precios).pack(side=tk.LEFT, padx=5)
-
+        # Configurar colores iniciales
+        self.actualizar_colores_radiobuttons()
+        
+        # Botones de acción con mejor estilo
+        botones_config = [
+            ("➕ Nueva Habitación", "#3498db", self.mostrar_dialog_crear_habitacion),
+            ("🔄 Actualizar Lista", "#95a5a6", self.actualizar_lista),
+            ("🧹 Limpiar Habitación", "#f39c12", self.mostrar_dialog_limpiar),
+            ("💰 Cambiar Precios", "#27ae60", self.mostrar_dialog_cambiar_precios)
+        ]
+        
+        for texto, color, comando in botones_config:
+            btn = tk.Button(button_frame, text=texto, bg=color, fg="white",
+                           font=("Segoe UI", 11, "bold"), relief=tk.RAISED, bd=2,
+                           padx=15, pady=8, cursor="hand2", command=comando)
+            btn.pack(side=tk.LEFT, padx=8)
+            
+            # Efecto hover corregido
+            self.agregar_efecto_hover(btn, color)
 
         # Frame para la lista de habitaciones
         self.frame_lista = tk.Frame(self)
         self.frame_lista.pack(pady=10, fill="both", expand=True)
 
-        # Botón volver
-        tk.Button(self, text="Volver al Menú Principal", 
-                 command=self.controlador.mostrar_menu_principal).pack(pady=10)
+        # Botón volver mejorado
+        volver_btn = tk.Button(self, text="← Volver al Menú Principal", 
+            font=("Segoe UI", 12, "bold"), 
+            bg="#7f8c8d", fg="white", 
+            relief=tk.RAISED, bd=3,
+            pady=10, padx=25, cursor="hand2",
+            command=self.controlador.mostrar_menu_principal)
+        volver_btn.pack(pady=20)
+        
+        # Efecto hover para botón volver
+        self.agregar_efecto_hover(volver_btn, "#7f8c8d")
         
         self.actualizar_lista()
 
-    def columnas_por_fila(self):
-        ancho = self.winfo_width()
-        if ancho <= 600:
-            return 2
-        elif ancho <= 900:
-            return 3
-        elif ancho <= 1200:
-            return 4
-        else:
-            return 5
+    def agregar_efecto_hover(self, boton, color_original):
+        """Añade efecto hover a un botón de manera segura"""
+        color_hover = self.oscurecer_color(color_original)
+        
+        def on_enter(event):
+            boton.config(bg=color_hover)
+        
+        def on_leave(event):
+            boton.config(bg=color_original)
+        
+        boton.bind("<Enter>", on_enter)
+        boton.bind("<Leave>", on_leave)
+
+    def oscurecer_color(self, color_hex):
+        """Oscurece un color hexadecimal para efectos hover"""
+        colores_map = {
+            "#3498db": "#2980b9",
+            "#95a5a6": "#7f8c8d", 
+            "#f39c12": "#e67e22",
+            "#27ae60": "#229954",
+            "#4CAF50": "#45a049",
+            "#6c757d": "#5a6268",  # Gris oscuro hover
+            "#2196F3": "#1976D2",
+            "#7f8c8d": "#6c7b7d"
+        }
+        return colores_map.get(color_hex, "#34495e")
+
+    def actualizar_filtro_y_lista(self):
+        """Actualiza los colores de los radiobuttons y la lista"""
+        self.actualizar_colores_radiobuttons()
+        self.actualizar_lista()
+    
+    def actualizar_colores_radiobuttons(self):
+        """Actualiza los colores de los radiobuttons según cuál está seleccionado"""
+        estado_seleccionado = self.filtro_estado.get()
+        estados = ["Todos", "Disponible", "Reservada", "Ocupada", "PorLimpiar", "Deshabilitada"]
+        
+        for i, rb in enumerate(self.radiobuttons):
+            if estados[i] == estado_seleccionado:
+                # Radiobutton seleccionado: texto y círculo azul
+                rb.config(fg="#3498db", selectcolor="#3498db")
+            else:
+                # Radiobutton no seleccionado: texto gris y círculo blanco
+                rb.config(fg="#2c3e50", selectcolor="white")
+
+    def columnas_por_fila(self, ancho_disponible):
+        """Calcula el número de columnas basado en el ancho disponible"""
+        ancho_card = 280  # Ancho aproximado de cada tarjeta
+        margen = 20       # Margen entre tarjetas
+        columnas = max(1, (ancho_disponible - 40) // (ancho_card + margen))
+        return min(columnas, 4)  # Máximo 4 columnas
 
     def mostrar_dialog_crear_habitacion(self):
         dialog = crear_habitacionDialog(self, self.crear_habitacion_callback)
@@ -366,7 +433,7 @@ class VistaHabitaciones(tk.Frame):
                 repositorio.guardar_habitacion(habitacion)
 
     def actualizar_lista(self):
-        """Actualiza la lista visual de habitaciones"""
+        """Actualiza la lista visual de habitaciones en formato de cuadrícula"""
         # Limpiar widgets existentes
         for widget in self.frame_lista.winfo_children():
             widget.destroy()
@@ -379,20 +446,25 @@ class VistaHabitaciones(tk.Frame):
                     font=("Arial", 12)).pack(pady=20)
             return
 
-        # Crear frame con scroll si hay muchas habitaciones
+        # Crear frame con scroll
         contenedor_scroll = tk.Frame(self.frame_lista)
-        contenedor_scroll.pack(fill="both", expand=True)
+        contenedor_scroll.pack(fill="both", expand=True, padx=10, pady=5)
 
-        canvas = tk.Canvas(contenedor_scroll, height=600)
+        canvas = tk.Canvas(contenedor_scroll)
         scrollbar = tk.Scrollbar(contenedor_scroll, orient="vertical", command=canvas.yview)
         canvas.configure(yscrollcommand=scrollbar.set)
 
         scrollbar.pack(side="right", fill="y")
         canvas.pack(side="left", fill="both", expand=True)
 
+        # Frame principal para la cuadrícula
         scrollable_frame = tk.Frame(canvas)
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 
+        # Crear cuadrícula de habitaciones
+        self.crear_cuadricula_habitaciones(scrollable_frame, habitaciones_filtradas)
+
+        # Configurar scroll
         scrollable_frame.bind(
             "<Configure>",
             lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
@@ -401,14 +473,98 @@ class VistaHabitaciones(tk.Frame):
         # Permitir scroll con la rueda del mouse
         def _on_mousewheel(event):
             canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
-        scrollable_frame.bind_all("<MouseWheel>", _on_mousewheel)
+        
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
 
-        # Filtrar habitaciones según el estado seleccionado
-        habitaciones_filtradas = self.filtrar_habitaciones()
+    def crear_cuadricula_habitaciones(self, parent, habitaciones):
+        """Crea una cuadrícula ordenada de habitaciones"""
+        # Determinar número de columnas (3 columnas por defecto)
+        columnas = 3
+        
+        # Crear las habitaciones en cuadrícula
+        for i, habitacion in enumerate(habitaciones):
+            fila = i // columnas
+            columna = i % columnas
+            
+            # Crear frame para cada habitación
+            frame_habitacion = self.crear_card_habitacion_mejorada(parent, habitacion)
+            frame_habitacion.grid(row=fila, column=columna, padx=10, pady=8, sticky="ew")
+        
+        # Configurar peso de las columnas para que se expandan uniformemente
+        for col in range(columnas):
+            parent.columnconfigure(col, weight=1, minsize=280)
 
-        # Crear cards de habitaciones
-        for habitacion in habitaciones_filtradas:
-            self.crear_card_habitacion(scrollable_frame, habitacion)
+    def crear_card_habitacion_mejorada(self, parent, habitacion):
+        """Crea una tarjeta mejorada para una habitación"""
+        estado_clase = habitacion.estado.__class__.__name__
+        color = self.COLORES_ESTADO.get(estado_clase, "white")
+        
+        # Frame principal de la tarjeta con bordes redondeados simulados
+        frame = tk.Frame(parent, bd=3, relief=tk.RAISED, bg=color, 
+                        width=280, height=140)
+        frame.pack_propagate(False)  # Mantener tamaño fijo
+        
+        # Frame superior con información
+        info_frame = tk.Frame(frame, bg=color)
+        info_frame.pack(fill="x", padx=12, pady=8)
+        
+        # Título de la habitación
+        tk.Label(info_frame, text=f"Habitación {habitacion.numero}", 
+                bg=color, font=("Segoe UI", 14, "bold")).pack(pady=2)
+        
+        # Descripción
+        tk.Label(info_frame, text=habitacion.get_descripcion(), 
+                bg=color, font=("Segoe UI", 11)).pack(pady=1)
+        
+        # Estado
+        tk.Label(info_frame, text=f"Estado: {estado_clase}", 
+                bg=color, font=("Segoe UI", 10, "italic")).pack(pady=1)
+        
+        # Frame inferior con botones
+        button_frame = tk.Frame(frame, bg=color)
+        button_frame.pack(side="bottom", fill="x", padx=8, pady=8)
+        
+        # Botones según el estado con mejor estilo
+        if estado_clase == "PorLimpiar":
+            btn_limpiar = tk.Button(button_frame, text="🧹 Limpiar", 
+                           bg="#4CAF50", fg="white", 
+                           font=("Segoe UI", 10, "bold"),
+                           relief=tk.RAISED, bd=2,
+                           padx=15, pady=6,
+                           cursor="hand2",
+                           command=lambda h=habitacion: self.limpiar_habitacion_callback(f"Habitación {h.numero}"))
+            btn_limpiar.pack(side="right", padx=3)
+            
+            # Efecto hover para botón limpiar
+            self.agregar_efecto_hover(btn_limpiar, "#4CAF50")
+        
+        if estado_clase != "Deshabilitada" and estado_clase != "Ocupada" and estado_clase != "Reservada":
+            btn_deshabilitar = tk.Button(button_frame, text="❌ Deshabilitar", 
+                           bg="#6c757d", fg="white",  # Cambiado a gris oscuro
+                           font=("Segoe UI", 10, "bold"),
+                           relief=tk.RAISED, bd=2,
+                           padx=12, pady=6,
+                           cursor="hand2",
+                           command=lambda h=habitacion: self.deshabilitar_habitacion(f"Habitación {h.numero}"))
+            btn_deshabilitar.pack(side="right", padx=3)
+            
+            # Efecto hover para botón deshabilitar
+            self.agregar_efecto_hover(btn_deshabilitar, "#6c757d")
+        
+        if estado_clase == "Deshabilitada":
+            btn_habilitar = tk.Button(button_frame, text="✅ Habilitar", 
+                           bg="#2196F3", fg="white", 
+                           font=("Segoe UI", 10, "bold"),
+                           relief=tk.RAISED, bd=2,
+                           padx=15, pady=6,
+                           cursor="hand2",
+                           command=lambda h=habitacion: self.habilitar_habitacion(f"Habitación {h.numero}"))
+            btn_habilitar.pack(side="right", padx=3)
+            
+            # Efecto hover para botón habilitar
+            self.agregar_efecto_hover(btn_habilitar, "#2196F3")
+        
+        return frame
 
     def filtrar_habitaciones(self):
         """Filtra las habitaciones según el estado seleccionado"""
@@ -420,7 +576,7 @@ class VistaHabitaciones(tk.Frame):
                 if h.estado.__class__.__name__ == estado_seleccionado]
     
     def deshabilitar_habitacion(self, seleccion):
-        """Callback para limpiar habitación seleccionada"""
+        """Callback para deshabilitar habitación seleccionada"""
         try:
             # Extraer número de habitación de la selección
             numero_habitacion = int(seleccion.split()[1])
@@ -435,7 +591,7 @@ class VistaHabitaciones(tk.Frame):
             messagebox.showerror("Error", f"Error al deshabilitar habitación:\n{e}")
 
     def habilitar_habitacion(self, seleccion):
-        """Callback para limpiar habitación seleccionada"""
+        """Callback para habilitar habitación seleccionada"""
         try:
             # Extraer número de habitación de la selección
             numero_habitacion = int(seleccion.split()[1])
@@ -448,32 +604,6 @@ class VistaHabitaciones(tk.Frame):
 
         except Exception as e:
             messagebox.showerror("Error", f"Error al habilitar habitación:\n{e}")
-
-    def crear_card_habitacion(self, parent, habitacion):
-        """Crea una tarjeta visual para una habitación"""
-        estado_clase = habitacion.estado.__class__.__name__
-        color = self.COLORES_ESTADO.get(estado_clase, "white")
-        
-        frame = tk.Frame(parent, bd=2, relief=tk.RAISED, bg=color, padx=10, pady=5)
-        frame.pack(pady=5, padx=10, fill="x")
-        
-        # Información de la habitación
-        info_text = f"Habitación {habitacion.numero}\n{habitacion.get_descripcion()}\nEstado: {estado_clase}"
-        tk.Label(frame, text=info_text, bg=color, font=("Arial", 10)).pack(side=tk.LEFT)
-        
-        # Botón de acción según el estado
-        if estado_clase == "PorLimpiar":
-            tk.Button(frame, text="Limpiar", 
-                     command=lambda: self.limpiar_habitacion_callback(f"Habitación {habitacion.numero}")).pack(side=tk.RIGHT)
-        """elif estado_clase in ["Disponible", "Reservada", "Ocupada"]:
-            tk.Button(frame, text="Cambiar Estado", 
-                     command=lambda: self.cambiar_estado(habitacion)).pack(side=tk.RIGHT)"""
-        if estado_clase != "Deshabilitada" and estado_clase != "Ocupada" and estado_clase != "Reservada":
-            tk.Button(frame, text="Deshabilitar",
-                  command=lambda: self.deshabilitar_habitacion(f"Habitación {habitacion.numero}")).pack(side=tk.RIGHT, padx=5)
-        if estado_clase == "Deshabilitada":
-            tk.Button(frame, text="Habilitar",
-                  command=lambda: self.habilitar_habitacion(f"Habitación {habitacion.numero}")).pack(side=tk.RIGHT, padx=5)
 
     def cambiar_estado(self, habitacion):
         """Cambia el estado de una habitación según su ciclo"""
