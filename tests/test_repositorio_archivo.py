@@ -33,8 +33,8 @@ class TestRepositorioArchivo(unittest.TestCase):
         os.unlink(self.temp_habitaciones.name)
 
     def test_guardar_y_obtener_habitacion(self):
-        self.repo.guardarHabitacion(self.habitacion)
-        habitaciones = self.repo.obtenerHabitaciones()
+        self.repo.guardar_habitacion(self.habitacion)
+        habitaciones = self.repo.obtener_habitaciones()
         self.assertEqual(len(habitaciones), 1)
         self.assertEqual(habitaciones[0]["numero"], 101)
 
@@ -43,7 +43,7 @@ class TestRepositorioArchivo(unittest.TestCase):
         reserva.agregar_servicio(ServicioLimpieza)
         self.repo.guardar(reserva)
 
-        reservas = self.repo.obtenerTodas()
+        reservas = self.repo.obtener_todas()
         self.assertEqual(len(reservas), 1)
         self.assertEqual(reservas[0]["id"], 1)
         self.assertEqual(reservas[0]["cliente"]["nombre"], "Laura")
@@ -52,7 +52,7 @@ class TestRepositorioArchivo(unittest.TestCase):
         reserva = Reserva(2, self.cliente, self.habitacion, date.today(), date.today())
         self.repo.guardar(reserva)
         self.repo.eliminar(2)
-        reservas = self.repo.obtenerTodas()
+        reservas = self.repo.obtener_todas()
         self.assertEqual(len(reservas), 0)
 
 if __name__ == '__main__':

@@ -1,0 +1,10 @@
+========== FACTURA ==========
+Cliente: <core.reserva_manager.Cliente object at 0x000001A12496AE70>
+Habitación: 102
+Descripción: Estándar Individual
+Fecha de ingreso: 2025-06-05
+Fecha de salida: 2025-06-06
+Servicios adicionales:
+Ninguno
+Total a pagar: $100.00
+=============================

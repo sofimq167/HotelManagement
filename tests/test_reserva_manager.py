@@ -2,7 +2,8 @@ import unittest
 from core.reserva_manager import ReservaManager
 from core.reserva import Reserva
 from core.servicios import ServicioRestaurante
-from core.estados_habitacion import Disponible, Ocupada
+from core.estado_disponible import Disponible 
+from core.estado_ocupada import Ocupada
 from unittest.mock import Mock
 from datetime import date
 from core.cliente import Cliente
@@ -11,8 +12,8 @@ class ReservaManagerTestCase(unittest.TestCase):
     def setUp(self):
         # Repositorio falso para evitar persistencia real
         self.repo_mock = Mock()
-        self.repo_mock.obtenerHabitaciones.return_value = []
-        self.repo_mock.obtenerTodas.return_value = []
+        self.repo_mock.obtener_habitaciones.return_value = []
+        self.repo_mock.obtener_todas.return_value = []
 
         # Resetear la instancia singleton
         ReservaManager._instancia = None
@@ -21,7 +22,7 @@ class ReservaManagerTestCase(unittest.TestCase):
         # Crear habitación manualmente
         from core.habitaciones_concretas import HabitacionEstandar
         self.habitacion = HabitacionEstandar(101)
-        self.habitacion.cambiarEstado(Disponible())
+        self.habitacion.cambiar_estado(Disponible())
         self.manager.agregar_habitacion(self.habitacion)
 
     def test_crear_reserva_exitosa(self):

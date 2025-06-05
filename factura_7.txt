@@ -1,0 +1,10 @@
+========== FACTURA ==========
+Cliente: pablito (ID: 111111)
+Habitación: 202
+Descripción: Habitación Doble + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia
+Fecha de ingreso: 2025-06-09
+Fecha de salida: 2025-06-11
+Servicios adicionales:
+Ninguno
+Total a pagar: $225.00
+=============================

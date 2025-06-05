@@ -1,0 +1,10 @@
+========== FACTURA ==========
+Cliente: juan (ID: 123)
+Habitación: 101
+Descripción: Estándar Individual
+Fecha de ingreso: 2025-08-14
+Fecha de salida: 2025-08-28
+Servicios adicionales:
+Ninguno
+Total a pagar: $100.00
+=============================

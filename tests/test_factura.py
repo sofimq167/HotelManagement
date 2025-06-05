@@ -14,27 +14,27 @@ class TestFactura(unittest.TestCase):
             id=1,
             cliente=self.cliente,
             habitacion=self.habitacion,
-            fechaInicio=date.today(),
-            fechaFin=date.today(),
+            fecha_inicio=date.today(),
+            fecha_fin=date.today(),
             estado="Ocupada"
         )
 
     def test_factura_basica(self):
         factura = Factura(self.reserva)
-        contenido = factura.generarFactura()
+        contenido = factura.generar_factura()
         self.assertIn("María", contenido)
         self.assertIn("Habitación: 101", contenido)
         self.assertIn("Total a pagar", contenido)
-        self.assertEqual(factura.total, self.habitacion.getPrecio())
+        self.assertEqual(factura.total, self.habitacion.get_precio())
 
     def test_factura_con_servicios(self):
         self.reserva.agregar_servicio(ServicioRestaurante)
         self.reserva.agregar_servicio(ServicioLimpieza)
         factura = Factura(self.reserva)
-        contenido = factura.generarFactura()
+        contenido = factura.generar_factura()
         self.assertIn("Restaurante", contenido)
         self.assertIn("Limpieza", contenido)
-        total_esperado = self.habitacion.getPrecio() + 30 + 20
+        total_esperado = self.habitacion.get_precio() + 30 + 20
         self.assertEqual(factura.total, total_esperado)
 
 if __name__ == '__main__':

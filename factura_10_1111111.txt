@@ -1,0 +1,38 @@
+==================================================
+                FACTURA HOTEL
+==================================================
+Número de Reserva: 10
+Fecha de Emisión: 05/06/2025 02:45
+
+INFORMACIÓN DEL CLIENTE:
+------------------------------
+Nombre: juan perez
+Documento: 1111111
+Teléfono: 123456
+Correo: juan@gmail.com
+Método de pago: Tarjeta de Crédito
+
+DETALLES DE LA RESERVA:
+------------------------------
+Habitación: 301
+Descripción: Suite
+Fecha de ingreso: 2025-06-05
+Fecha de salida: 2025-06-06
+Número de noches: 1
+
+SERVICIOS ADICIONALES:
+------------------------------
+Ninguno
+
+RESUMEN DE COSTOS:
+------------------------------
+Costo por noche: $250.00
+Número de noches: 1
+Subtotal habitación: $250.00
+Servicios adicionales: $0.00
+TOTAL A PAGAR: $250.00
+
+Método de pago: Tarjeta de Crédito
+==================================================
+¡Gracias por su preferencia!
+==================================================

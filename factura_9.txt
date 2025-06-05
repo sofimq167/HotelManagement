@@ -1,0 +1,10 @@
+========== FACTURA ==========
+Cliente: nueva (ID: 111111)
+Habitación: 313
+Descripción: Suite
+Fecha de ingreso: 2025-06-14
+Fecha de salida: 2025-06-15
+Servicios adicionales:
+Ninguno
+Total a pagar: $280.00
+=============================

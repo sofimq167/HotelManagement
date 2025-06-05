@@ -1,10 +1,30 @@
+"""
+Módulo que define la interfaz IHabitacion.
+"""
+
 from abc import ABC, abstractmethod
 
 class IHabitacion(ABC):
-    @abstractmethod
-    def getDescripcion(self) -> str:
-        pass
+    """
+    Interfaz para representar los métodos obligatorios de una habitación.
+    """
 
     @abstractmethod
-    def getPrecio(self) -> float:
-        pass
+    def get_descripcion(self) -> str:
+        """
+        Retorna la descripción de la habitación.
+
+        Returns:
+            str: Descripción textual.
+        """
+        raise NotImplementedError("Debe implementar get_descripcion()")
+
+    @abstractmethod
+    def get_precio(self) -> float:
+        """
+        Retorna el precio de la habitación.
+
+        Returns:
+            float: Precio de la habitación.
+        """
+        raise NotImplementedError("Debe implementar get_precio()")

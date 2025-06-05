@@ -1,0 +1,38 @@
+==================================================
+                FACTURA HOTEL
+==================================================
+Número de Reserva: 12
+Fecha de Emisión: 05/06/2025 02:54
+
+INFORMACIÓN DEL CLIENTE:
+------------------------------
+Nombre: pepito
+Documento: 12344444
+Teléfono: 312456789
+Correo: pepe@gmail.com
+Método de pago: Nequi
+
+DETALLES DE LA RESERVA:
+------------------------------
+Habitación: 302
+Descripción: Habitación Doble + Servicio Restaurante
+Fecha de ingreso: 2025-06-08
+Fecha de salida: 2025-06-12
+Número de noches: 4
+
+SERVICIOS ADICIONALES:
+------------------------------
+Ninguno
+
+RESUMEN DE COSTOS:
+------------------------------
+Costo por noche: $150.00
+Número de noches: 4
+Subtotal habitación: $600.00
+Servicios adicionales: $-420.00
+TOTAL A PAGAR: $180.00
+
+Método de pago: Nequi
+==================================================
+¡Gracias por su preferencia!
+==================================================

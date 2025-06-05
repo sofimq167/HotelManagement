@@ -13,8 +13,8 @@ class TestComandosReserva(unittest.TestCase):
         # Reiniciar instancia singleton
         ReservaManager._instancia = None
         self.repositorio_mock = Mock()
-        self.repositorio_mock.obtenerHabitaciones.return_value = []
-        self.repositorio_mock.obtenerTodas.return_value = []
+        self.repositorio_mock.obtener_habitaciones.return_value = []
+        self.repositorio_mock.obtener_todas.return_value = []
 
         self.manager = ReservaManager.getInstancia(self.repositorio_mock)
         self.cliente = Cliente("Pedro", "111")
@@ -54,7 +54,7 @@ class TestComandosReserva(unittest.TestCase):
         comando_checkout = RegistrarCheckOutCommand(reserva.id, self.manager)
         factura = comando_checkout.ejecutar()
         self.assertIsNotNone(factura)
-        self.assertIn("FACTURA", factura.generarFactura())
+        self.assertIn("FACTURA", factura.generar_factura())
 
 if __name__ == '__main__':
     unittest.main()

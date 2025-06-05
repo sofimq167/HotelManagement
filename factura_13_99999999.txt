@@ -1,0 +1,38 @@
+==================================================
+                FACTURA HOTEL
+==================================================
+Número de Reserva: 13
+Fecha de Emisión: 05/06/2025 03:01
+
+INFORMACIÓN DEL CLIENTE:
+------------------------------
+Nombre: juanita
+Documento: 99999999
+Teléfono: 3124567
+Correo: juanitas@gmail.com
+Método de pago: Tarjeta de Débito
+
+DETALLES DE LA RESERVA:
+------------------------------
+Habitación: 304
+Descripción: Estándar Individual + Servicio Restaurante + Servicio Limpieza + Servicio Asistencia
+Fecha de ingreso: 2025-06-08
+Fecha de salida: 2025-06-14
+Número de noches: 6
+
+SERVICIOS ADICIONALES:
+------------------------------
+Ninguno
+
+RESUMEN DE COSTOS:
+------------------------------
+Costo por noche: $100.00
+Número de noches: 6
+Subtotal habitación: $600.00
+Servicios adicionales: $-425.00
+TOTAL A PAGAR: $175.00
+
+Método de pago: Tarjeta de Débito
+==================================================
+¡Gracias por su preferencia!
+==================================================

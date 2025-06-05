@@ -1,10 +1,10 @@
 
         ========== FACTURA ==========
-        Cliente: <core.reserva_manager.Cliente object at 0x0000020331899160>
-        Habitación: 102
+        Cliente: Luisa (ID: 777)
+        Habitación: 101
         Descripción: Estándar Individual
-        Fecha de ingreso: 2025-06-02
-        Fecha de salida: 2025-06-03
+        Fecha de ingreso: 2025-06-04
+        Fecha de salida: 2025-06-04
         Servicios adicionales:
         Ninguno
         Total a pagar: $100.00
